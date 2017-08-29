@@ -37,7 +37,7 @@ If and how the GUI should do CPU dispatching is up for discussion.
 
 **Support for all interactions:**
 
-One of the major weaknesses of the HWBOT Submitter app is that inability to interact with y-cruncher. Information like warnings, memory estimations, and other diagnostics cannot be passed from y-cruncher back to the UI.
+One of the major weaknesses of the HWBOT Submitter app is the inability to interact with y-cruncher. Information like warnings, memory estimations, and other diagnostics cannot be passed from y-cruncher back to the UI.
 
 Because these interactions will vary by y-cruncher version and binary, the GUI should not try to imitate y-cruncher. IOW, don't try to copy the formulas used to perform memory calculations. Instead, the GUI should feed inputs into y-cruncher and let y-cruncher return the desired output. Same applies to available sub-options.
 
