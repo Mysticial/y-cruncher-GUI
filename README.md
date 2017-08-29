@@ -1,4 +1,4 @@
-# y-cruncher-GUI
+# y-cruncher GUI
 Experimental repo for discussing/developing a proper GUI for y-cruncher.
 
 y-cruncher has gone for 8 years without a proper GUI. The HWBOT Submitter that's bundled with it has a Java dependency and is poorly integrated with the main program.
