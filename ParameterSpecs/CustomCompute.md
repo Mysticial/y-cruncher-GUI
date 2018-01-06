@@ -164,8 +164,8 @@ This is a pivot node. The structure of the rest of the Custom Compute object mod
 |[`Constant`](#constant-constant-and-algorithm)|[`Constant`](#constant-constant-and-algorithm)|
 |[`ComputeSize`](#computesize-digits-to-compute)|[`ComputeSize`](#computesize-digits-to-compute)|
 |[`Output`](#output-output-format)|[`Output`](#output-output-format)|
-|[`Parallelism`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Parallelism.md)|[`Parallelism`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Parallelism.md)|
 |`Mode`       |`Mode`        |
+|[`Parallelism`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Parallelism.md)|[`Parallelism`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Parallelism.md)|
 |`Allocator`  |`Allocator`   |
 |             |`BytesPerSeek`|
 |             |`Memory`      |
