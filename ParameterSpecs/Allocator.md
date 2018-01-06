@@ -27,8 +27,8 @@ The GUI should query the options object model to get the supported list for the 
 
 ### `malloc`: C malloc()
 ```
-        Allocator : {
-            Allocator : "malloc"
+        "Allocator": {
+           "Allocator": "malloc"
         }
 ```
 
@@ -43,10 +43,10 @@ This framework has no additional sub-options.
 `VirtualAlloc()` on Windows and `mmap()` on Linux.
 
 ```
-        Allocator : {
-            Allocator : "mmap"
-            LargePages : "attempt"
-            LockedPages : "attempt"
+        "Allocator": {
+            "Allocator": "mmap",
+            "LargePages": "attempt",
+            "LockedPages": "attempt"
         }
 ```
 
@@ -70,23 +70,23 @@ Interleave the memory across multiple NUMA nodes.
 **Windows:**
 
 ```
-        Allocator : {
-            Allocator : "interleave"
-            Hashed : "true"
-            LockedPages : "attempt"
-            Nodes : [0 1 2 3]
+        "Allocator": {
+            "Allocator": "interleave",
+            "Hashed": "true",
+            "LockedPages": "attempt",
+            "Nodes": [0 1 2 3]
         }
 ```
 
 **Linux:**
 
 ```
-        Allocator : {
-            Allocator : "interleave"
-            Hashed : "true"
-            mbind : "false"
-            LockedPages : "attempt"
-            Nodes : [0 1 2 3]
+        "Allocator": {
+            "Allocator": "interleave",
+            "Hashed": "true",
+            "mbind": "false",
+            "LockedPages": "attempt",
+            "Nodes": [0 1 2 3]
         }
 ```
 
@@ -102,6 +102,7 @@ This allocator differs slightly between Windows and Linux. In Linux, there is an
 |`Nodes`       |Integer list of NUMA node #s.   |
 
 Duplicates are allowed in the node list.
+The `mbind` field is ignored on the statically-linked Linux binaries since they are unable to bind anyway.
 
 -----
 
@@ -110,10 +111,10 @@ Duplicates are allowed in the node list.
 Interleave the memory across multiple NUMA nodes using the libnuma library.
 
 ```
-        Allocator : {
-            Allocator : "interleave-libnuma"
-            LockedPages : "attempt"
-            Nodes : [0 1 2 3]
+        "Allocator": {
+            "Allocator": "interleave-libnuma",
+            "LockedPages": "attempt",
+            "Nodes": [0 1 2 3]
         }
 ```
 
