@@ -116,8 +116,8 @@ Most constants will only have two sub-elements, `Constant` and `Algorithm`. Some
 |`goldenratio`  | - | `newton` |
 |`e`            | - | `exp(1)` or `exp(-1)` |
 |`pi`           | - | `chudnovsky` or `ramanujan` |
-|`arccoth`      |32-bit: Integer ∈ `[2, 2^16)`<br>64-bit: Integer ∈ `[2, 2^32)` | `machin-primary` or `machin-secondary` |
-|`log`          |32-bit: Integer ∈ `[2, 2^16)`<br>64-bit: Integer ∈ `[2, 2^32)` | `series` |
+|`arccoth`      |32-bit: Integer ∈ `[2, 2^16)`<br>64-bit: Integer ∈ `[2, 2^32)` | `series` |
+|`log`          |32-bit: Integer ∈ `[2, 2^16)`<br>64-bit: Integer ∈ `[2, 2^32)` | `machin-primary` or `machin-secondary` |
 |`zeta3`        | - | `az-long` or `az-short` |
 |`lemniscate`   | - | `gauss` or `sebah` |
 |`catalan`      | - | `lupas` or `huvent` |
