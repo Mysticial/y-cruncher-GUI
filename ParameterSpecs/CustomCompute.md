@@ -166,7 +166,7 @@ This is a pivot node. The structure of the rest of the Custom Compute object mod
 |[`Output`](#output-output-format)|[`Output`](#output-output-format)|
 |`Mode`       |`Mode`        |
 |[`Parallelism`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Parallelism.md)|[`Parallelism`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Parallelism.md)|
-|`Allocator`  |`Allocator`   |
+|[`Allocator`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Allocator.md)|[`Allocator`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Allocator.md)|
 |             |`BytesPerSeek`|
 |             |`Memory`      |
 |             |`RaidFile`    |
