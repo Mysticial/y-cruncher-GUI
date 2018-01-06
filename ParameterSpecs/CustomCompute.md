@@ -135,7 +135,7 @@ If enabled, the # of hexadecimal digits is derived from the # of decimal digits.
 
 |Sub-Node          |Valid Values |
 |------------------|-------------|
-|`DecimalDigits`   |Integer ∈ `[100, 1000000000000050)` | 
+|`DecimalDigits`   |Integer ∈ `[100, 1000000000000050]` | 
 |`EnableHexDigits` |`true` or `false` |
 
 -----
