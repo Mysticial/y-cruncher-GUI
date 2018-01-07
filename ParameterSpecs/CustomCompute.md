@@ -167,9 +167,9 @@ This is a pivot node. The structure of the rest of the Custom Compute object mod
 |`Mode`       |`Mode`        |
 |[`Parallelism`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Parallelism.md)|[`Parallelism`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Parallelism.md)|
 |[`Allocator`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Allocator.md)|[`Allocator`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/Allocator.md)|
-|             |`BytesPerSeek`|
-|             |`Memory`      |
-|             |`RaidFile`    |
+|             |[`BytesPerSeek`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/SwapMode.md#bytesperseek-bytes-per-seek-tuning-parameter)|
+|             |[`Memory`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/SwapMode.md#memory-requested-memory-usage)|
+|             |[`RaidFile`](https://github.com/Mysticial/y-cruncher-GUI/blob/master/ParameterSpecs/SwapMode.md#raidfile-swap-file-configuration)|
 
 Notes:
 - Future versions of y-cruncher may add or remove modes.
