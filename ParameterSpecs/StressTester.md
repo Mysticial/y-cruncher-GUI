@@ -65,7 +65,7 @@ The GUI can use this list as the complete set of logical core ids that can be us
 
 ### `TotalMemory`: Total Memory to Test
 
-This is the # of bytes that should be used by the stress tester. This memory will be divided evenly among all the thread.
+This is the # of bytes that should be used by the stress tester. This memory will be divided evenly among all the threads.
 
 Valid values are:
 - 32-bit: Integer ∈ `[0, 7 * 2^28)`
