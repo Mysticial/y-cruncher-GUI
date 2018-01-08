@@ -106,7 +106,7 @@ Valid values are:
 - `VST` - Vector Transform
 - `C17` - Code 17 Experiment
 
-Not all tests are available for every binary. In particular, the `C17` test is not available for processors that lack AVX2.
+Not all tests are available for every binary. In particular, the `C17` test is only available for processors that target AVX2 or higher.
 
 The GUI should make no assumption about the existance of any test for a particular environment.
 The stress-test menu renderer will provide a full list of supported tests.
