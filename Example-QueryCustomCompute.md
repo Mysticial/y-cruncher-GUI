@@ -90,7 +90,7 @@
                 "Value": 1000000000,
                 "DisplayText": "1,000,000,000"
             },
-            "EnableHexDigits": {
+            "HexadecimalDigits": {
                 "Value": 830482024,
                 "DisplayText": "830,482,024"
             }
