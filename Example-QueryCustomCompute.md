@@ -8,7 +8,8 @@
 
 ```
 {
-    "Action": "QueryCustomCompute",
+    "Action": "CustomCompute",
+    "Option": "Run",
     "CustomCompute": {
         "Constant": {
             "Constant": "e",
