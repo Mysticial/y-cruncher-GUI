@@ -1,0 +1,86 @@
+
+Everything here is subject to change.
+
+This will eventually be added to y-cruncher's "Command Lines.txt" file once the
+feature is complete and stable enough for use.
+
+Note that none of this is available in y-cruncher v0.7.5. It currently only
+exists in the development builds.
+
+
+--------------------------------------------------------------------------------
+Slave Mode:
+
+    {program} slave:{version} [-port:{port}] [-ctype:{type}] [-allowremote:{value}]
+
+    y-cruncher slave:0 -port:20000
+    y-cruncher slave:0 -port:40000 -ctype:json -allowremote:1
+
+Runs y-cruncher in "Slave Mode" which allows it to be controlled over TCP.
+This command is not meant to be directly used by the user. It is meant for 3rd
+party applications (such as a GUI) to interface with y-cruncher.
+
+For more information: https://github.com/Mysticial/y-cruncher-GUI
+
+
+    Parameter: slave:{version}
+    Examples:  slave:0
+
+    "slave:0" is currently the only valid value. The number is a version number in
+    anticipation of future changes that are backwards incompatible.
+
+--------------------
+
+    Parameter: [-port:{port}]
+    Examples:  -port:20000, -port:30000
+
+    This specifies which port y-cruncher should listen on for incoming connections.
+    If the option is not specified, it uses port 30000 by default.
+
+--------------------
+
+    Parameter: [-ctype:{type}]
+    Examples:  -ctype:json, -ctype:acfg
+
+    Valid Values: json, acfg
+
+    Specifies the object format to be used for all communication.
+      - "json" is standard JSON.
+      - "acfg" is y-cruncher's custom format that it uses for its configuration files.
+
+    Both formats use UTF-8 without BOM. However, y-cruncher's JSON implementation
+    is not complete as it lacks floating-point and unicode escape characters.
+
+    If this option is not specified, it uses JSON by default.
+
+--------------------
+
+    Parameter: [-allowremote:{value}]
+    Examples:  -allowremote:0, -allowremote:1
+
+    Valid Values: 0, 1
+
+    Should y-cruncher allow connections that are not from localhost?
+        0   only allows connections from localhost.
+        1   allows all connections from any host.
+
+    y-cruncher has the ability to overwrite arbitrary files on the filesystem.
+    Furthermore, if y-cruncher is running as administrator (for swap mode), it also
+    has the ability to expose the contents of deleted files on the filesystem.
+
+    This is a major security issue if an attacker manages to connect to and hijack
+    a y-cruncher session running in Slave Mode.
+
+    If this option is omitted, the default is to disallow remote connections.
+
+    Slave Mode was originally intended to allow a GUI to be built on top of
+    y-cruncher. It was never intended as a remote-control device.
+
+    If security really matters, you should not rely solely on this option to
+    block external connections. y-cruncher is not hardened against exploits
+    as it was only ever meant to run as a stand-alone desktop application.
+
+
+
+
+
