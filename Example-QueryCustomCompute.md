@@ -9,7 +9,7 @@
 ```
 {
     "Action": "CustomCompute",
-    "Option": "Run",
+    "Option": "Query",
     "CustomCompute": {
         "Constant": {
             "Constant": "e",
