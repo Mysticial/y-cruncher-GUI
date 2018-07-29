@@ -11,10 +11,14 @@ exists in the development builds.
 --------------------------------------------------------------------------------
 Slave Mode:
 
-    {program} slave:{version} [-port:{port}] [-ctype:{type}] [-allowremote:{value}]
+    {program} slave:{version}
+              [-port:{port}]
+              [-ctype:{type}]
+              [-allowremote:{value}]
+              [-printtraffic:{value}]
 
     y-cruncher slave:0 -port:20000
-    y-cruncher slave:0 -port:40000 -ctype:json -allowremote:1
+    y-cruncher slave:0 -port:40000 -ctype:json -allowremote:1 -printtraffic:1
 
 Runs y-cruncher in "Slave Mode" which allows it to be controlled over TCP.
 This command is not meant to be directly used by the user. It is meant for 3rd
@@ -79,6 +83,16 @@ For more information: https://github.com/Mysticial/y-cruncher-GUI
     If security really matters, you should not rely solely on this option to
     block external connections. y-cruncher is not hardened against exploits
     as it was only ever meant to run as a stand-alone desktop application.
+
+--------------------
+
+    Parameter: [-printtraffic:{value}]
+    Examples:  -printtraffic:0, -printtraffic:1
+
+    Valid Values: 0, 1 (default 0)
+
+    When set to 1, y-cruncher will print all TCP traffic that it sends and
+    receives. This is for debugging purposes.
 
 
 
