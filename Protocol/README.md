@@ -51,6 +51,11 @@ But y-cruncher can also be configured to use its custom ACFG format that is used
 
 ## Scopes
 
+(todo)
+
+- Main Menu
+- Stress Tester
+- Custom Compute
 
 
 ## Main Menu Scope
@@ -58,7 +63,7 @@ But y-cruncher can also be configured to use its custom ACFG format that is used
 This is the scope that y-cruncher enters when it is first started up.
 
 Commands valid from the Main Menu scope:
- - `Exit`
+ - [`Exit`](#Exit)
  - `ExitNow`
  - `BinaryInfo`
  - `StressTest`
