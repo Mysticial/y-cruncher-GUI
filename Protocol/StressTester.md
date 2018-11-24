@@ -2,6 +2,8 @@
 
 This scope represents y-cruncher's Stress-Tester feature.
 
+
+-----
 ## Querying Commands:
 
 The following commands can be invoked from the Main Menu Scope:
@@ -45,9 +47,10 @@ Example: [StressTest-SampleQuery.md](StressTest-SampleQuery.md)
 
 Runs the stress-tester with the specified parameters.
 
-This causes y-cruncher to enter the "Stress Test" scope.
+This causes y-cruncher to enter the "Stress Test" scope and start the stress test.
 
 
+-----
 ## In Scope Commands:
 
 The following commands can be invoked while the Stress Tester is running. (inside the Stress Test scope)
