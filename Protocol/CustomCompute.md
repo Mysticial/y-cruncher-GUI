@@ -2,6 +2,7 @@
 
 This scope represents y-cruncher's Custom Compute feature.
 
+Parameters for Custom Compute are documented here: [ParameterSpecs/CustomCompute.md](/ParameterSpecs/CustomCompute.md)
 
 -----
 ## Querying Commands:
