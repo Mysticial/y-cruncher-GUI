@@ -26,7 +26,7 @@ In order to use Slave Mode, y-cruncher must be started with specific parameters.
     y-cruncher slave:0 -port:20000
     y-cruncher slave:0 -port:40000 -ctype:json -allowremote:1 -printtraffic:1
 
-See the [command lines](SlaveMode%20Command%20Lines.txt) for more details.
+See the [command lines](/SlaveMode%20Command%20Lines.txt) for more details.
 
 Once started in Slave Mode, y-cruncher will accept incoming TCP connections at the specified port number.
 While not officially supported, it will accept multiple connections simultaneously, but it won't distinguish them from another.
@@ -51,7 +51,8 @@ But y-cruncher can also be configured to use its custom ACFG format that is used
 
 ## Scopes
 
-(todo)
+y-cruncher in Slave Mode can be in one of the following states (scopes).
+The behavior and accepted list of commands will vary depending on what scope it is in.
 
 - [Main Menu](MainMenuScope.md)
 - Stress Tester
