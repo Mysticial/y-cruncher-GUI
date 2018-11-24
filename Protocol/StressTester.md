@@ -1,4 +1,4 @@
-# Stress Tester Scope
+# Stress Tester
 
 This scope represents y-cruncher's Stress-Tester feature.
 
