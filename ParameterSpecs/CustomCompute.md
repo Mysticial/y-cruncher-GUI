@@ -21,8 +21,10 @@ But for the GUI, it will be in standard JSON instead of the custom thing that y-
         },
         "Output": {
             "Path": "",
+            "OutputEnable" : "true"
             "DigitsPerFile": 0
         },
+        "OutputVerify" : "true"
         "Mode": "ram",
         "Parallelism": {
             "TaskDecomposition": 16,
@@ -55,8 +57,10 @@ But for the GUI, it will be in standard JSON instead of the custom thing that y-
         },
         "Output": {
             "Path": "",
+            "OutputEnable" : "true"
             "DigitsPerFile": 1000000
         },
+        "OutputVerify" : "true"
         "Mode": "swap",
         "Parallelism": {
             "TaskDecomposition": 16,
@@ -116,15 +120,19 @@ Most constants will only have two sub-elements, `Constant` and `Algorithm`. Some
 |`goldenratio`  | - | `newton` |
 |`e`            | - | `exp(1)` or `exp(-1)` |
 |`pi`           | - | `chudnovsky` or `ramanujan` |
-|`arccoth`      |32-bit: Integer ∈ `[2, 2^16)`<br>64-bit: Integer ∈ `[2, 2^32)` | `series` |
+|`arccoth`*     |32-bit: Integer ∈ `[2, 2^16)`<br>64-bit: Integer ∈ `[2, 2^32)` | `series` |
 |`log`          |32-bit: Integer ∈ `[2, 2^16)`<br>64-bit: Integer ∈ `[2, 2^32)` | `machin-primary` or `machin-secondary` |
 |`zeta3`        | - | `az-long` or `az-short` |
-|`lemniscate`   | - | `gauss` or `sebah` |
-|`catalan`      | - | `lupas` or `huvent` |
+|`lemniscate`   | - | `gauss`, `sebah`, or `agm-pi`** |
+|`catalan`      | - | `lupas`, `huvent`, `guillera`, `pilehrood-short`, or `pilehrood-long`** |
 |`gamma`        | - | `brent-refined` or `brent-original` |
+|`custom`*       | A file path. | - |
 
 Currently, this node is identical for all binaries with the exception of the 32-bit vs. 64-bit differences.
 So every single binary, whether it be `00-x86` or `17-SKX` all support the same constants and algorithms.
+
+*`arccoth` goes away in v0.7.7. `custom` is new to v0.7.7.<br>
+**`agm-pi`, `guillera`, `pilehrood-short`, and `pilehrood-long` are new to v0.7.7.
 
 -----
 
@@ -147,11 +155,22 @@ This controls how to output the digits. Where to output? And what format?
 |Sub-Node        |Valid Values |
 |----------------|-------------|
 |`Path`          |Empty string or a writable filesystem path. | 
+|`OutputEnable`  |`true` or `false` |
 |`DigitsPerFile` |`0`, `-1`, or integer ∈ `[1000000, 2^63)` |
 
+`OutputEnable` determines whether to output digits at all. If `false`, the remaining parameters are ignored.
+
+For `DigitsPerFile`:
 - `0` means output to an ASCII .txt file.
 - `-1` means to compress entire output into a single .ycd file.
 - Any other number N means to compress into multiple .ycd files with N digits per file.
+
+-----
+
+### `OutputVerify`: Verify Output Digits
+
+`true` or `false`. If `true`, it enables verification of the radix conversion and the output digits.
+This option is required for world record attempts.
 
 -----
 
