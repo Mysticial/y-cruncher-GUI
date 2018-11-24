@@ -131,9 +131,9 @@ Most constants will only have two sub-elements, `Constant` and `Algorithm`. Some
 Currently, this node is identical for all binaries with the exception of the 32-bit vs. 64-bit differences.
 So every single binary, whether it be `00-x86` or `17-SKX` all support the same constants and algorithms.
 
-* `arccoth` goes away in v0.7.7. `custom` is new to v0.7.7.<br>
-** `agm-pi`, `guillera`, `pilehrood-short`, and `pilehrood-long` are new to v0.7.7.<br>
-*** For custom formulas, the entire formula is inlined into the config. You cannot pass a filename.
+*`arccoth` goes away in v0.7.7. `custom` is new to v0.7.7.<br>
+**`agm-pi`, `guillera`, `pilehrood-short`, and `pilehrood-long` are new to v0.7.7.<br>
+***For custom formulas, the entire formula is inlined into the config. You cannot pass a filename.
 
 -----
 
