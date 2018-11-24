@@ -2,6 +2,7 @@
 
 This scope represents y-cruncher's Stress-Tester feature.
 
+Parameters for the stress tester are documented here: [ParameterSpecs/StressTester.md](/ParameterSpecs/StressTester.md)
 
 -----
 ## Querying Commands:
