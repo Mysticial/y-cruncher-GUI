@@ -64,10 +64,10 @@ This is the scope that y-cruncher enters when it is first started up.
 
 Commands valid from the Main Menu scope:
  - [`Exit`](#Exit)
- - `ExitNow`
- - `BinaryInfo`
- - `StressTest`
- - `CustomCompute`
+ - [`ExitNow`](#ExitNow)
+ - [`BinaryInfo`](#BinaryInfo)
+ - [`StressTest`](#StressTest)
+ - [`CustomCompute`](#CustomCompute)
 
 ### Exit:
 
