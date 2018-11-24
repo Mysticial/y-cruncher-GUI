@@ -54,7 +54,7 @@ But y-cruncher can also be configured to use its custom ACFG format that is used
 y-cruncher in Slave Mode can be in one of the following states (scopes).
 The behavior and accepted list of commands will vary depending on what scope it is in.
 
-- [Main Menu](MainMenuScope.md)
+- [Main Menu](MainMenu.md)
 - [Stress Tester](StressTester.md)
 - [Custom Compute](CustomCompute.md)
 
