@@ -2,7 +2,7 @@
 
 This section details the various status updates that y-cruncher (running in Slave Mode) may send back to the client.
 
-Most of these serve no functional purpose other than to inform the client of the progress of an operation or a computation. GUIs acting as clients don't have to imitate y-cruncher's console output. They can do whatever want with these updates.
+Most of these serve no functional purpose other than to inform the client of the progress of an operation or a computation. GUIs acting as clients don't have to imitate y-cruncher's console output. They can do whatever they want with these updates.
 
 **Simple Updates:**
 - [`Status_Line`](#Status_Line)
@@ -11,6 +11,10 @@ Most of these serve no functional purpose other than to inform the client of the
 - [`Data_XXX`](#Data_XXX)
 - [`PauseWarning`](#PauseWarning)
 - [`Error`](#Error)
+
+**Scope Updates**
+- [`EnterScope`](#EnterScope)
+- [`ExitScope`](#ExitScope)
 
 **Line Updates:**
 - [`Status_LineSectionStart`](#Status_LineSectionStart)
@@ -152,6 +156,31 @@ y-cruncher's error handling is "not great" - to put it lightly. The undefined as
 ```
 
 
+## Scope Updates
+
+These are sent by y-cruncher to notify the client that it is changing scopes. This happens when y-cruncher starts or finishes an operation/computation.
+
+
+### EnterScope
+
+```
+{
+    "EnterScope": "CustomCompute"
+}
+```
+
+
+### ExitScope
+
+```
+{
+    "ExitScope": ""
+}
+```
+
+As of this writing, the string is unused and is always empty. 
+
+
 ## Line Updates
 
 This represents a single line which gets appended to as progress is made.
@@ -237,11 +266,14 @@ If y-cruncher is currently inside a microstatus section, it will respond with:
 }
 ```
 
-This output can be interpreted however the client wants. It is sufficient to reproduce the entire status line that y-cruncher would normally print out in the console.
+This output is sufficient to reproduce the entire status line that y-cruncher would normally print out in the console.
 
 The purpose of the `MicroStatusID` is due to the asynchronous nature of poll-based requests. By the time the client receives a response, the computation may have already moved on past the end of the microsection. It may even be in a different microsection. The `MicroStatusID` number tells the client which one it is meant for.
 
-To date, y-cruncher has only ever used single-line microstatus updates. But both y-cruncher and the protocol here support a much more generic structure that uses a tree to represent a status. (as you can see from the `Children` node) This allows the status to be polled within parallel sections of a computation. If and when this more generic structure is used, y-cruncher will print it out in the console as a multi-line microstatus where all the lines update in real time. The GUI can of course display it however it wants.
+To date, y-cruncher has only ever used single-line microstatus updates. But the structure here is actually a tree. As of this writing, 
+no (publicly enabled) y-cruncher functionality uses the full tree functionality. Therefore the `Children` node will never have more than one element.
+
+The motivation of this tree structure is that it can do detailed status display of fork-join parallel algorithms. Each branch of the tree represents a different thread of computation which will be updating independently of the others.
 
 
 
