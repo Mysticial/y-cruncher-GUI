@@ -196,7 +196,8 @@ This represents a single line which gets appended to as progress is made.
 
 ## Micro-section Updates
 
-These are the updates where the status line is repeatedly overwritten as progress is made. Internally these are called "Microstatus Updates".
+These are the updates where the status line is repeatedly overwritten as progress is made.<br>
+Internally these are called "Microstatus Updates".
 
 They are called "micro" because each individual update is small and relatively unimportant. So instead of printing out a new line for each update, it's better (aesthetically) to just have a mutating status line that updates in real time.
 
@@ -219,7 +220,7 @@ Indicates the start of a microstatus section. The `MicroStatusID` is a unique ID
 
 ### Status_MicroSectionEnd
 
-Marks the end of a microstatus section. `Status_MicroSectionStart` and `Status_MicroSectionEnd` will normally come in pairs. Exceptions may occur if an error occurs.
+Marks the end of a microstatus section. `Status_MicroSectionStart` and `Status_MicroSectionEnd` will always come in pairs unless an error has occurred.
 
 The `Status_MicroSectionStart` and `Status_MicroSectionEnd` pairs will never overlap. Only one is active at a time.
 
@@ -271,7 +272,7 @@ This output is sufficient to reproduce the entire status line that y-cruncher wo
 The purpose of the `MicroStatusID` is due to the asynchronous nature of poll-based requests. By the time the client receives a response, the computation may have already moved on past the end of the microsection. It may even be in a different microsection. The `MicroStatusID` number tells the client which one it is meant for.
 
 To date, y-cruncher has only ever used single-line microstatus updates. But the structure here is actually a tree. As of this writing, 
-no (publicly enabled) y-cruncher functionality uses the full tree functionality. Therefore the `Children` node will never have more than one element.
+no (publicly enabled) y-cruncher feature uses the full tree functionality. Therefore the `Children` node will never have more than one element.
 
 The motivation of this tree structure is that it can do detailed status display of fork-join parallel algorithms. Each branch of the tree represents a different thread of computation which will be updating independently of the others.
 
