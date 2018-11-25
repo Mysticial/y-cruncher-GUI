@@ -147,6 +147,8 @@ y-cruncher's error handling is "not great" - to put it lightly. The undefined as
 
 ## Line Updates
 
+This represents a single line which gets appended to as progress is made.
+
 ### Status_LineSectionStart
 
 ### Status_LineSectionAdd
@@ -155,6 +157,16 @@ y-cruncher's error handling is "not great" - to put it lightly. The undefined as
 
 
 ## Micro-section Updates
+
+These are the updates where the status line is repeatedly overwritten as progress is made. Internally these are called "Microstatus Updates".
+
+They are called "micro" because each individual update is small and relatively unimportant. So instead of printing out a new line for each update, it's better (aesthetically) to just have a mutating status line that updates in real time.
+
+Unlike the other status updates on this page, microstatus updates do not happen automatically. They need to be requested by the client which y-cruncher will respond to with the current status. y-cruncher normally does these updates once per second. In Slave Mode, the client takes control of when to poll the updates.
+
+To date, y-cruncher has only ever used single-line microstatus updates. But both y-cruncher and the protocol here supports a much more generic generalization that uses tree to represent a status. This allows the status to be polled within parallel sections of a computation. If and when this more generic structure is used, y-cruncher will print it out in the console as a multi-line microstatus where all the lines update in real time.
+
+
 
 ### Status_MicroSectionStart
 
