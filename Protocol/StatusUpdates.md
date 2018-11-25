@@ -7,6 +7,7 @@ Most of these serve no functional purpose other than to inform the client of the
 **Simple Updates:**
 - [`Status_Line`](#Status_Line)
 - [`Status_ColoredLine`](#Status_ColoredLine)
+- [`Status_Label`](#Status_Label)
 - [`Status_Time`](#Status_Time)
 - [`Data_XXX`](#Data_XXX)
 - [`PauseWarning`](#PauseWarning)
@@ -55,6 +56,21 @@ Same as `Status_Line`, but with colors.
     "Status_Line": {
         "Color" : "G"
         "Text" : "Begin computing Pi..."
+    }
+}
+```
+
+
+### Status_Label
+
+Label + value.
+
+```
+{
+    "Status_Label": {
+        "Name": "Start Time:",
+        "Color": "Y",
+        "Text": "Sun Nov 25 00:19:27 2018"
     }
 }
 ```
@@ -184,6 +200,10 @@ As of this writing, the string is unused and is always empty.
 ## Line Updates
 
 This represents a single line which gets appended to as progress is made.
+
+Examples of this are:
+- Computations: `Working Memory...` -> `Working Memory...  280 MiB  (locked, 2.00 MiB pages, spread: 100%/1)`
+- Stress Tester: `Running BBP:` -> `Running BBP: Passed  Test Time:  85.709 seconds  ( 1.428 minutes )`
 
 `Status_LineSectionStart` and `Status_LineSectionEnd` mark the start and end of the line. Sandwiched between them may contain zero or more `Status_LineSectionAdd` which will append stuff to the line.
 
