@@ -56,6 +56,7 @@ This causes y-cruncher to enter the "Custom Compute" scope and start the stress 
 
 The following commands can be invoked while a computation is running. (inside the Custom Compute scope)
  - [`QueryMicroStatus`](#QueryMicroStatus)
+ - [`Continue`](#Continue)
 
 ### QueryMicroStatus
 
@@ -69,3 +70,11 @@ Requests a microstatus update for the current section of the computation.
 
 Due the asynchronous nature of such updates, y-cruncher will include a sequence # ID for all microstatus updates so they can be mapped to its parent macro-section.
 If y-cruncher receives a request for a microstatus update while it is not inside a macro-section that has such updates, it will ignore the request.
+
+### Continue
+
+    {
+        "Action": "Continue"
+    }
+
+Wake up the computation from a pause event. Pause events can happen with certain warnings or errors.
