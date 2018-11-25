@@ -185,14 +185,38 @@ As of this writing, the string is unused and is always empty.
 
 This represents a single line which gets appended to as progress is made.
 
+`Status_LineSectionStart` and `Status_LineSectionEnd` mark the start and end of the line. Sandwiched between them may contain zero or more `Status_LineSectionAdd` which will append stuff to the line.
+
+`Status_LineSectionStart` and `Status_LineSectionEnd` will always come in pairs unless an error has occurred.
+
+The `Status_LineSectionStart` and `Status_LineSectionEnd` pairs will never overlap. Only one is active at a time.
+
 ### Status_LineSectionStart
 
+```
+{
+    "Status_LineSectionStart": "Running BBP: "
+}
+```
 
 ### Status_LineSectionAdd
 
+```
+{
+    "Status_LineSectionAdd": {
+        "Color": "T",
+        "Text": "10.442 seconds  ( 0.174 minutes )"
+    }
+}
+```
 
 ### Status_LineSectionEnd
 
+```
+{
+    "Status_LineSectionEnd": ""
+}
+```
 
 ## Micro-section Updates
 
