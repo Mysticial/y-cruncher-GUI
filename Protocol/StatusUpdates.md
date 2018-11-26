@@ -10,8 +10,10 @@ Most of these serve no functional purpose other than to inform the client of the
 - [`Status_Label`](#Status_Label)
 - [`Status_Time`](#Status_Time)
 - [`Data_XXX`](#Data_XXX)
+- [`Warning`](#Warning)
 - [`PauseWarning`](#PauseWarning)
 - [`Error`](#Error)
+- [`FatalError`](#FatalError)
 
 **Scope Updates**
 - [`EnterScope`](#EnterScope)
@@ -135,15 +137,24 @@ The following example is what y-cruncher sends to the client at the end of a com
 ```
 
 
-### PauseWarning
+### Warning
 
-When y-cruncher hits an important warning or error that warrants pausing the operation or computation, it will send this to the client.
+The generic non-blocking warning message. The operation/computation will continue running in the background.
 
 ```
 {
-    "PauseWarning": {
-        "Name" : "Unable to initialize XXX, expect performance degradation."
-    }
+    "Warning": "Memory allocation errors detected. Possible performance degradation."
+}
+```
+
+
+### PauseWarning
+
+When y-cruncher hits a non-fatal, but important warning that warrants pausing the operation or computation, it will send this to the client.
+
+```
+{
+    "PauseWarning": "Unable to initialize XXX, expect performance degradation."
 }
 ```
 
@@ -158,9 +169,12 @@ To unpause the operation/computation, the client needs to send a `Continue` back
 
 ### Error
 
-The generic error message. Exceptions that propagate all the way up the execution stack will be caught and sent to the client verbatim. It is currently undefined what state y-cruncher will be after such an error.
+The generic error message. Exceptions that propagate all the way up the execution stack will be caught and sent to the client verbatim.
 
-y-cruncher's error handling is "not great" - to put it lightly. The undefined aspects state of y-cruncher after a generic error message is mostly a reflection of that.
+The implications of the error will depend on context:
+- You will get this if you send y-cruncher an invalid command. The command is imply no-op'ed and ignored.
+- If it's from a parameter querying operation, it simply means that the parameters are invalid.
+- If it's an error during a computation, it usually means that the computation failed. So it will likely be followed by an [`ExitScope`](#ExitScope) signalling the end of the computation.
 
 ```
 {
@@ -168,6 +182,19 @@ y-cruncher's error handling is "not great" - to put it lightly. The undefined as
         "Type": "InvalidParametersException",
         "Message": "Unknown command: QueryMicroStatus"
     }
+}
+```
+
+
+### FatalError
+
+These indicate errors that are so serious that y-cruncher will immediately exit.
+
+The vast majority of these indicate a bug in y-cruncher. But there are some legitimate cases where this can happen
+
+```
+{
+    "FatalError": "Unable to rename checkpoint files."
 }
 ```
 
