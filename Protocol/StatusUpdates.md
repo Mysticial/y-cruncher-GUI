@@ -171,7 +171,7 @@ To unpause the operation/computation, the client needs to send a `Continue` back
 
 The generic error message. Exceptions that propagate all the way up the execution stack will be caught and sent to the client verbatim.
 
-The implications of the error will depend on context:
+The implications of the error will depend on the context:
 - You will get this if you send y-cruncher an invalid command. The command is imply no-op'ed and ignored.
 - If it's from a parameter querying operation, it simply means that the parameters are invalid.
 - If it's an error during a computation, it usually means that the computation failed. So it will likely be followed by an [`ExitScope`](#ExitScope) signalling the end of the computation.
@@ -188,9 +188,9 @@ The implications of the error will depend on context:
 
 ### FatalError
 
-These indicate errors that are so serious that y-cruncher will immediately exit.
+These indicate errors that are so serious that y-cruncher must exit. y-cruncher will pause in a similar manner to [`PauseWarning`](#PauseWarning), but it will exit as soon as you send it a `Continue`.
 
-The vast majority of these indicate a bug in y-cruncher. But there are some legitimate cases where this can happen
+The vast majority of these indicate a bug in y-cruncher. But there are some legitimate cases where this can happen.
 
 ```
 {
