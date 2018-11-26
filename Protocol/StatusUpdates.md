@@ -10,6 +10,8 @@ Most of these serve no functional purpose other than to inform the client of the
 - [`Status_Label`](#Status_Label)
 - [`Status_Time`](#Status_Time)
 - [`Data_XXX`](#Data_XXX)
+
+**Error Handling**
 - [`Warning`](#Warning)
 - [`PauseWarning`](#PauseWarning)
 - [`Error`](#Error)
@@ -136,6 +138,8 @@ The following example is what y-cruncher sends to the client at the end of a com
 }
 ```
 
+
+## Error Handling
 
 ### Warning
 
